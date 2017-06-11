@@ -1,4 +1,4 @@
-package com.teamtreehouse.giflib;
+package com.teamtreehouse.instateam;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

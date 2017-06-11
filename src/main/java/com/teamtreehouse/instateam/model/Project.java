@@ -1,4 +1,4 @@
-package com.teamtreehouse.giflib.model;
+package com.teamtreehouse.instateam.model;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

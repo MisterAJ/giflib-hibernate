@@ -1,8 +1,6 @@
-package com.teamtreehouse.giflib.model;
+package com.teamtreehouse.instateam.model;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 
 @Entity
 public class Role {
