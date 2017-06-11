@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org/">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta charset="utf-8"/>
+        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
         <title>InstaTeam</title>
-        <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="../../src/main/resources/static/stylesheets/normalize.css">
-        <link rel="stylesheet" href="../../src/main/resources/static/stylesheets/site.css">
+        <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="stylesheet" th:href="@{/stylesheets/normalize.css}"/>
+        <link rel="stylesheet" th:href="@{/stylesheets/site.css}"/>
     </head>
     <body>
         <header>
@@ -29,8 +29,8 @@
             <div class="container wrapper">
                 <div class="project-list single">
                     <div class="project">
-                        <h2>Website Project</h2>
-                        <p>Design and build a custom website</p>
+                        <h2 th:text="${project.name}"></h2>
+                        <p th:text="${project.description}"></p>
                         <span class="tag active">Active</span>
                     </div>
                     <div class="roles-collaborators">
