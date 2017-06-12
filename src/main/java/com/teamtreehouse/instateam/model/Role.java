@@ -16,4 +16,8 @@ public class Role {
     private Collaborator collaborator;
 
     public Role(){}
+
+    public Role(String description) {
+        this.description = description;
+    }
 }

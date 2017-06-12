@@ -18,6 +18,12 @@ public class Collaborator {
     @ManyToOne
     private Role role;
 
+    public Collaborator(){}
+
+    public Collaborator(String name, Role role) {
+        this.name = name;
+        this.role = role;
+    }
 
     public Role getRole() {
         return role;
@@ -26,8 +32,6 @@ public class Collaborator {
     public void setRole(Role role) {
         this.role = role;
     }
-
-    public Collaborator(){}
 
     public Long getId() {
         return id;
