@@ -14,7 +14,7 @@ public class Collaborator {
     @Size(min = 3, max = 15)
     private String name;
 
-    // TODO: Many collaborators to one role
+    // Many collaborators to one role
     @ManyToOne
     private Role role;
 

@@ -12,6 +12,8 @@ public class Role {
     private byte[] bytes;
     private String description;
 
+
+
     @ManyToOne
     private Collaborator collaborator;
 

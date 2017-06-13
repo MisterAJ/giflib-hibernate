@@ -1,13 +1,11 @@
 package com.teamtreehouse.instateam.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
 
+@Entity
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +19,7 @@ public class Project {
     @Size(min = 3, max = 150)
     private String description;
 
+    // TODO - Mapped by? https://teamtreehouse.com/library/add-jpa-annotations-to-entities
     @ManyToMany
     private List<Role> rolesNeeded;
 
