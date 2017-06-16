@@ -23,11 +23,12 @@ public class CollaboratorServiceImpl implements CollaboratorService{
     }
 
     @Override
-    public void save(Collaborator project) {
+    public void save(Collaborator collaborator) {
+        collaboratorDao.save(collaborator);
     }
 
     @Override
-    public void delete(Collaborator project) {
-
+    public void delete(Collaborator collaborator) {
+        collaboratorDao.delete(collaborator);
     }
 }

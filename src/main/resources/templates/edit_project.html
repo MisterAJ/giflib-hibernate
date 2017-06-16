@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
-    <head th:replace="fragments/head :: head">
-    </head>
+    <head th:replace="fragments/head :: head"></head>
     <body>
         <div th:replace="fragments/header :: header">...</div>
         <div th:replace="fragments/nav :: nav">...</div>
         <section>
             <div class="container wrapper">
-                <form>
+                <form th:action="@{/project/new}" th:object="${newProject}">
                     <div>
-                        <label for="project_name"> Project Name:</label>
-                        <input type="text" name="project_name">
+                        <label> Project Name:</label>
+                        <input th:name="name" type="text" name="project_name"/>
                     </div>
                     <div>
-                        <label for="project_description">Project Description:</label>
-                        <textarea rows="4" name="project_description"></textarea>
+                        <label>Project Description:</label>
+                        <textarea th:name="description" rows="4" name="project_description"></textarea>
                     </div>
                     <div>
-                        <label for="project_status">Project Status:</label>
+                        <label >Project Status:</label>
                         <div class="custom-select">
                         <span class="dropdown-arrow"></span>
                             <select name="project_status">
@@ -28,28 +27,16 @@
                         </div>
                     </div>
                     <div>
-                        <label for="project_roles">Project Roles:</label>
+                        <label>Project Roles:</label>
                         <ul class="checkbox-list">
-                            <li>
-                                <input type="checkbox" name="project_roles" value="Developer">
-                                <span class="primary"> Developer</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" name="project_roles" value="Designer">
-                                <span class="primary"> Designer</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" name="project_roles" value="QA">
-                                <span class="primary"> QA</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" name="project_roles" value="DevOps">
-                                <span class="primary"> DevOps</span>
+                            <li th:each="role : ${roles}">
+                                <input type="checkbox" name="" th:value="${role.name}" />
+                                <span class="primary" th:text="${role.name}"> Developer</span>
                             </li>
                         </ul>
                     </div>
                     <div class="actions">
-                        <input type="submit" value="Save" class="button">
+                        <input type="submit" value="Save" class="button"/>
                         <a href="#" class="button button-secondary">Cancel</a>
                     </div>
                 </form>

@@ -11,19 +11,15 @@ public class Collaborator {
     private Long id;
 
     @NotNull
-    @Size(min = 3, max = 15)
+    @Size(min = 3, max = 30)
     private String name;
 
     // Many collaborators to one role
+    @NotNull
     @ManyToOne
     private Role role;
 
     public Collaborator(){}
-
-    public Collaborator(String name, Role role) {
-        this.name = name;
-        this.role = role;
-    }
 
     public Role getRole() {
         return role;

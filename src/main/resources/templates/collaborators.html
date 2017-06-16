@@ -7,36 +7,29 @@
         <div th:replace="fragments/nav :: nav">...</div>
         <section>
             <div class="container wrapper">
-                <form>
+                <form th:action="@{/collaborators}" method="post">
                     <h2>Manage Collaborators</h2>
                     <ul class="checkbox-list">
-                        <li>
-                            <span class="primary">Michael Pemulius</span>
+                        <li th:each="collaborator : ${collaborators}">
+                            <span th:text="${collaborator.name}" class="primary">Michael Pemulius</span>
                             <div class="custom-select">
                                 <span class="dropdown-arrow"></span>
                                 <select>
-                                    <option th:each="" value="#" selected="">Designer</option>
-                                    <option value="#">Developer</option>
-                                    <option value="#">QA</option>
-                                    <option value="#">DevOps</option>
+                                    <option th:text="${collaborator.role.name}" value="#" selected="">Designer</option>
                                 </select>
                             </div>
                         </li>
                     </ul>
-                    <div class="actions add-new-collaborator">
-                        <input type="text" placeholder="Name..."/>
+                    <div class="actions add-new-collaborator" th:object="${newCollaborator}">
+                        <input type="text" th:name="name" placeholder="Name..."/>
                         <div class="custom-select">
                             <span class="dropdown-arrow"></span>
-                            <select>
+                            <select th:field="*{role.id}">
                                 <option value="#" disabled="" selected="">Role...</option>
-                                <option value="#">Developer</option>
-                                <option value="#">Designer</option>
-                                <option value="#">QA</option>
-                                <option value="#">DevOps</option>
-                                <option value="#">Copywriter</option>
+                                <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.name}">Developer</option>
                             </select>
                         </div>
-                        <a class="button" href="#">Add</a>
+                        <button class="button" type="submit">Add</button>
                     </div>
                 </form>
             </div>

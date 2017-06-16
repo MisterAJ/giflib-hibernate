@@ -1,6 +1,9 @@
 package com.teamtreehouse.instateam.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Role {
@@ -8,18 +11,36 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Lob
-    private byte[] bytes;
-    private String description;
+    @NotNull
+    private String name;
 
+    @OneToMany
+    private List<Collaborator> collaborators = new ArrayList<>();
 
+    public Role() {
+    }
 
-    @ManyToOne
-    private Collaborator collaborator;
+    public Long getId() {
+        return id;
+    }
 
-    public Role(){}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public Role(String description) {
-        this.description = description;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Collaborator> getCollaborators() {
+        return collaborators;
+    }
+
+    public void setCollaborators(List<Collaborator> collaborators) {
+        this.collaborators = collaborators;
     }
 }

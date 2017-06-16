@@ -31,6 +31,7 @@ public class ProjectDaoImpl implements ProjectDao{
         return project;
     }
 
+    @SuppressWarnings("Duplicates")
     @Override
     public void save(Project project) {
         Session session = sessionFactory.openSession();
@@ -40,6 +41,7 @@ public class ProjectDaoImpl implements ProjectDao{
         session.close();
     }
 
+    @SuppressWarnings("Duplicates")
     @Override
     public void delete(Project project) {
         Session session = sessionFactory.openSession();
